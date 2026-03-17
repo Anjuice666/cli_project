@@ -46,10 +46,10 @@ def get_doc_content(doc_id: str) -> str:
     else:
         return f"Error: Document with ID '{doc_id}' not found."
 
-# Prompt to rewrite a doc in markdown format
+# Prompt to rewrite a doc in Markdown format
 @mcp.prompt()
 def rewrite_to_markdown(doc_id: str) -> str:
-    """Rewrite a document in markdown format."""
+    """Rewrite a document in Markdown format."""
     if doc_id in docs:
         content = docs[doc_id]
         return f"""Please rewrite the following document content in markdown format:
