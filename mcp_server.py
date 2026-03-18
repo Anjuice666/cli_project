@@ -32,13 +32,13 @@ def edit_doc(doc_id: str, new_content: str) -> str:
         return f"Error: Document with ID '{doc_id}' not found."
 
 # Resource to return all doc IDs
-@mcp.resource("docs://list")
-def list_docs() -> list:
+@mcp.resource("docs://list", mime_type="application/json")
+def list_docs() -> list[str]:
     """Return a list of all document IDs."""
     return list(docs.keys())
 
 # Resource to return the contents of a particular doc
-@mcp.resource("docs://{doc_id}")
+@mcp.resource("docs://{doc_id}", mime_type="text/plain")
 def get_doc_content(doc_id: str) -> str:
     """Return the contents of a particular document."""
     if doc_id in docs:
